@@ -1,0 +1,130 @@
+data = """
+1	0.81
+2	0.95
+3	1.01
+4	1.17
+5	1.23
+6	1.29
+7	1.36
+8	1.39
+9	1.55
+10	1.57
+11	1.57
+12	1.61
+13	1.68
+14	1.72
+15	1.81
+16	1.84
+17	1.86
+18	1.88
+19	1.9
+20	1.94
+21	2.07
+22	2.31
+23	2.31
+24	2.35
+25	2.46
+26	2.52
+27	2.71
+28	2.71
+29	2.73
+30	2.74
+31	2.78
+32	2.81
+33	2.82
+34	2.88
+35	2.95
+36	2.96
+37	2.98
+38	3.05
+39	3.29
+40	3.33
+41	3.44
+42	3.55
+43	3.79
+44	3.82
+45	3.86
+46	3.86
+47	3.87
+48	3.89
+49	3.94
+50	3.99
+51	4
+52	4.12
+53	4.21
+54	4.34
+55	4.35
+56	4.36
+57	4.44
+58	4.46
+59	4.59
+60	4.72
+61	4.81
+62	4.9
+63	5.01
+64	5.03
+65	5.11
+66	5.23
+67	5.75
+68	5.78
+69	5.8
+70	5.84
+71	5.94
+72	5.94
+73	5.97
+74	5.97
+75	5.97
+76	6.08
+77	6.19
+78	6.26
+79	6.33
+80	6.41
+81	6.55
+82	6.57
+83	6.61
+84	6.64
+85	6.97
+86	7.1
+87	7.26
+88	7.35
+89	7.47
+90	8.13
+91	8.53
+92	8.86
+93	9.04
+94	9.49
+95	10.43
+96	10.61
+97	11.02
+
+
+
+""".split('\n')  # split this string on the "newline" character.
+
+#print len(data)
+
+
+#
+# The data is stored in a single string. Now, split the data and store
+# each column in a list. Convert the data from a string to a float.
+#
+
+tlist = []
+ylist = []
+for s in data:
+    if s:
+        t,y = s.split()     # split the string in two
+        t=float(t)          # convert time to float
+        y=float(y)    # convert y-position (cm) to float in meters
+        tlist.append(t)     # append to the list for time data
+        ylist.append(y)     # append to the list for y-position data
+        
+#print "tlist=",tlist
+#print "ylist=",ylist
+
+import matplotlib.pyplot as plt
+plt.title('Greedy Traveling Salesmanr')
+plt.xlabel('No of cities')
+plt.ylabel('Execution time in (ms)')
+plt.plot(tlist,ylist,'m.')
+plt.show()
